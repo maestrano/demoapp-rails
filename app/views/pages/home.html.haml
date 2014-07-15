@@ -13,7 +13,7 @@
       - current_user.companies.each do |company|
         %li= company.name
 - else
-  %p You are not currently logged in. Click on the button below to login via maestrano
+  %p You are currently not logged in. Click on the button below to login via maestrano
   = link_to "Login", init_maestrano_auth_saml_index_path
   
     
