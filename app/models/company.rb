@@ -21,4 +21,18 @@ class Company < ActiveRecord::Base
   # Validation
   #===================================
   validate :name, presence: true
+  
+  def add_member(user)
+    unless self.member?(user)
+      self.user_company_rels.create(user:user)
+    end
+  end
+  
+  def member?(user)
+    self.user_company_rels.where(user_id:user.id).count > 0
+  end
+  
+  def remove_member
+    self.user_company_rels.where(user_id:user.id).delete_all
+  end
 end
