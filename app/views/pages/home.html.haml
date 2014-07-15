@@ -1,0 +1,19 @@
+%h1 Home Page
+- if current_user
+  %p
+    You are logged in as
+    = "#{current_user.first_name} #{current_user.last_name}"
+  
+  - if current_user.companies.empty?
+    %p You do not belong to any company
+  - else
+    %p
+      You belong to the following companies
+    %ul
+      - current_user.companies.each do |company|
+        %li= company.name
+- else
+  %p You are not currently logged in. Click on the button below to login via maestrano
+  = link_to "Login", init_maestrano_auth_saml_index_path
+  
+    
