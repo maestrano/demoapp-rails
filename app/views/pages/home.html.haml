@@ -2,7 +2,7 @@
 - if current_user
   %p
     You are logged in as
-    = "#{current_user.first_name} #{current_user.last_name}"
+    = "#{current_user.first_name} #{current_user.last_name} (#{current_user.uid})"
   
   - if current_user.companies.empty?
     %p You do not belong to any company
@@ -11,7 +11,9 @@
       You belong to the following companies
     %ul
       - current_user.companies.each do |company|
-        %li= company.name
+        %li= "#{company.name} (#{company.uid})"
+        
+  = link_to "Logout", logout_path
 - else
   %p You are currently not logged in. Click on the button below to login via maestrano
   = link_to "Login", init_maestrano_auth_saml_index_path

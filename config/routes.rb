@@ -4,6 +4,8 @@ DemoappRails::Application.routes.draw do
 
   root to: 'pages#home'
   
+  get '/logout', to: 'pages#logout'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
