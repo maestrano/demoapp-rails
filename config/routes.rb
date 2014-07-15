@@ -1,4 +1,7 @@
 DemoappRails::Application.routes.draw do
+  maestrano_routes
+
+
   root to: 'pages#home'
   
   # The priority is based upon order of creation:
