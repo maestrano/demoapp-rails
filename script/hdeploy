@@ -1,0 +1,15 @@
+#!/bin/bash
+
+echo "Compiling assets"
+RAILS_ENV=production bundle exec rake assets:precompile
+
+echo "Committing assets"
+git add .
+git commit -am "assets compilation"
+git push
+
+echo "Pushing app to heroku"
+git push heroku master
+
+echo "Running migrations"
+heroku run rake db:migrate
