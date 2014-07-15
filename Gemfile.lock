@@ -39,6 +39,12 @@ GEM
     coffee-script-source (1.7.1)
     erubis (2.7.0)
     execjs (2.2.1)
+    haml (3.1.4)
+    haml-rails (0.3.4)
+      actionpack (~> 3.0)
+      activesupport (~> 3.0)
+      haml (~> 3.0)
+      railties (~> 3.0)
     hike (1.2.3)
     i18n (0.6.11)
     journey (1.0.4)
@@ -124,6 +130,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
+  haml-rails
   jquery-rails
   maestrano-rails
   rails (= 3.2.19)
