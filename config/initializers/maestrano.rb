@@ -14,7 +14,7 @@ Maestrano.configure do |config|
   # This is your application host (e.g: my-app.com) which is ultimately
   # used to redirect users to the right SAML url during SSO handshake.
   #
-  config.app.host = (config.environment == 'production' ? 'https://my-app.com' : 'http://localhost:3000')
+  config.app.host = (config.environment == 'production' ? 'https://my-app.com' : 'http://localhost:7000')
   
   # ==> App ID & API key
   # Your application App ID and API key which you can retrieve on http://maestrano.com
@@ -22,8 +22,8 @@ Maestrano.configure do |config|
   # For testing you can retrieve/generate an api.id and api.key from the API Sandbox directly 
   # on http://api-sandbox.maestrano.io
   #
-  config.api.id = (config.environment == 'production' ? 'prod_app_id' : 'sandbox_app_id')
-  config.api.key = (config.environment == 'production' ? 'prod_api_key' : 'sandbox_api_key')
+  config.api.id = (config.environment == 'production' ? 'prod_app_id' : 'app-1')
+  config.api.key = (config.environment == 'production' ? 'prod_api_key' : 'gfcmbu8269wyi0hjazk4t7o1sndpvrqxl53e1')
   
   # ==> Single Sign-On activation
   # Enable/Disable single sign-on. When troubleshooting authentication issues
