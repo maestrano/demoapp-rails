@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
   # Setup protected attributes for your model
   attr_protected :provider, :uid
-  attr_accessible :country_code, :email, :first_name, :last_name
   
   # Enable Maestrano for this user
   maestrano_user_via :provider, :uid do |user,maestrano|

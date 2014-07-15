@@ -1,11 +1,10 @@
 class Company < ActiveRecord::Base
   # Setup protected attributes for your model
   attr_protected :provider, :uid
-  attr_accessible :name
   
   # Enable Maestrano for this group
   maestrano_group_via :provider, :uid do |group, maestrano|
-    group.name = (maestrano.company_name || "Default Group name")
+    group.name = (maestrano.company_name.blank? ? "Default Group name" : maestrano.company_name)
     #group.country_alpha2 = maestrano.country
     #group.free_trial_end_at = maestrano.free_trial_end_at
     #group.some_required_field = 'some-appropriate-default-value'
