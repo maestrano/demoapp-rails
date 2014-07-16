@@ -18,7 +18,7 @@ Maestrano.configure do |config|
   # The api-sandbox allows you to easily test integration scenarios.
   # More details on http://api-sandbox.maestrano.io
   #
-  config.environment = (Rails.env.production? ? 'production' : 'test')
+  config.environment = 'production'
   
   # ==> Application host
   # This is your application host (e.g: my-app.com) which is ultimately
@@ -33,7 +33,7 @@ Maestrano.configure do |config|
   # on http://api-sandbox.maestrano.io
   #
   config.api.id = (config.environment == 'production' ? 'app-15u8' : 'app-1')
-  config.api.key = (config.environment == 'production' ? '3744ce0613cfb202b491b659a3477ec3a30549cca54498862cd45ccbb7c16afa' : 'gfcmbu8269wyi0hjazk4t7o1sndpvrqxl53e1')
+  config.api.key = (config.environment == 'production' ? '7168aedba38d6154bf782b01a7eeab21ad395e229a170f0ec90ff6ac44383095' : 'gfcmbu8269wyi0hjazk4t7o1sndpvrqxl53e1')
   
   # ==> Single Sign-On activation
   # Enable/Disable single sign-on. When troubleshooting authentication issues
