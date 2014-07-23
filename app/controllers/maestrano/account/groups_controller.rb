@@ -3,7 +3,17 @@ class Maestrano::Account::GroupsController < Maestrano::Rails::WebHookController
   # DELETE /maestrano/account/groups/cld-1
   # Delete an entire group
   def destroy
+    # id
     group_uid = params[:id]
+    
+    # Get entity
+    company = Company.find_by_provider_and_uid('maestrano',group_uid)
+    
+    # Delete all relations
+    company.user_company_rels.delete_all
+    
+    # Delete the company
+    render json: {success: true}, status: :success 
     
     # Perform deletion steps here
     # --

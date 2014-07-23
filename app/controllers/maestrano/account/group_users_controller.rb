@@ -7,6 +7,15 @@ class Maestrano::Account::GroupUsersController < Maestrano::Rails::WebHookContro
     user_uid = Maestrano.mask_user(params[:id],params[:group_id]) 
     group_uid = params[:group_id]
     
+    # Get the entities
+    user = User.find_by_provider_and_uid('maestrano',user_uid)
+    company = Company.find_by_provider_and_uid('maestrano',group_uid)
+    
+    # Remove the user from the company
+    company.remove_user(user)
+    
+    render json: {success: true}, status: :success
+    
     # Perform association deletion steps here
     # --
     # If Maestrano.param('sso.creation_mode') is set to virtual
