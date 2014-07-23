@@ -12,7 +12,7 @@ class Maestrano::Account::GroupUsersController < Maestrano::Rails::WebHookContro
     company = Company.find_by_provider_and_uid('maestrano',group_uid)
     
     # Remove the user from the company
-    company.remove_user(user)
+    company.remove_member(user)
     
     render json: {success: true}, status: :success
     
