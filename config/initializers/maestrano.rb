@@ -33,7 +33,7 @@ Maestrano.configure do |config|
   # on http://api-sandbox.maestrano.io
   #
   config.api.id = (config.environment == 'production' ? 'app-15u4' : 'app-1')
-  config.api.key = (config.environment == 'production' ? '7168aedba38d6154bf782b01a7eeab21ad395e229a170f0ec90ff6ac44383095' : 'gfcmbu8269wyi0hjazk4t7o1sndpvrqxl53e1')
+  config.api.key = (config.environment == 'production' ? 'c514be240975ffdb91aaeabe6e6ee98c167ee04dfa79724215d2380096214cbd' : 'gfcmbu8269wyi0hjazk4t7o1sndpvrqxl53e1')
   
   # ==> Single Sign-On activation
   # Enable/Disable single sign-on. When troubleshooting authentication issues
