@@ -31,7 +31,7 @@ class Company < ActiveRecord::Base
     self.user_company_rels.where(user_id:user.id).count > 0
   end
   
-  def remove_member
+  def remove_member(user)
     self.user_company_rels.where(user_id:user.id).delete_all
   end
 end
