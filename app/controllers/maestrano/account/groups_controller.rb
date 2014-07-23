@@ -13,7 +13,10 @@ class Maestrano::Account::GroupsController < Maestrano::Rails::WebHookController
     company.user_company_rels.delete_all
     
     # Delete the company
-    render json: {success: true}, status: :success 
+    company.destroy
+    
+    # Respond
+    render json: {success: true}
     
     # Perform deletion steps here
     # --

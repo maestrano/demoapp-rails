@@ -14,7 +14,7 @@ class Maestrano::Account::GroupUsersController < Maestrano::Rails::WebHookContro
     # Remove the user from the company
     company.remove_member(user)
     
-    render json: {success: true}, status: :success
+    render json: {success: true}
     
     # Perform association deletion steps here
     # --
