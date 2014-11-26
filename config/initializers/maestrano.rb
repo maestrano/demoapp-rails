@@ -14,7 +14,7 @@ Maestrano.configure do |config|
   # This is your application host (e.g: my-app.com) which is ultimately
   # used to redirect users to the right SAML url during SSO handshake.
   #
-  config.app.host = 'http://mno-rails-demoapp.herokuapp.com'
+  config.app.host = 'http://rails-demoapp.maestrano.io'
   
   # ==> App ID & API key
   # Your application App ID and API key which you can retrieve on http://maestrano.com
