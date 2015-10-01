@@ -16,6 +16,8 @@
   = link_to "Logout", logout_path
 - else
   %p You are currently not logged in. Click on the button below to login via maestrano
-  = link_to "Login", init_maestrano_auth_saml_index_path
+  = link_to "Login with default tenant", tenant_maestrano_auth_saml_index_path(tenant: 'default')
+  %br
+  = link_to "Login with other tenant", tenant_maestrano_auth_saml_index_path(tenant: 'other-tenant')
   
     
