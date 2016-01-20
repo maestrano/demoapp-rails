@@ -4,20 +4,23 @@
     You are logged in as
     = "#{current_user.first_name} #{current_user.last_name} (#{current_user.uid})"
   
-  - if current_user.companies.empty?
-    %p You do not belong to any company
-  - else
+  - if current_user.companies.exists?
     %p
       You belong to the following companies
     %ul
       - current_user.companies.each do |company|
         %li= "#{company.name} (#{company.uid})"
-        
-  = link_to "Logout", logout_path
+    = link_to "Logout", logout_path
+
+    %h2 Account management
+    = link_to "Bills", maestrano_account_bills_path
+    %h2 Connec! data-sharing
+    = link_to "Organizations", maestrano_connec_organizations_path
+    %br
+  - else
+    %p You do not belong to any company
 - else
   %p You are currently not logged in. Click on the button below to login via maestrano
   = link_to "Login with default tenant", tenant_maestrano_auth_saml_index_path(tenant: 'default')
   %br
   = link_to "Login with other tenant", tenant_maestrano_auth_saml_index_path(tenant: 'other-tenant')
-  
-    

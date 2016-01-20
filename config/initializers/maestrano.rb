@@ -29,7 +29,7 @@ Maestrano['default'].configure do |config|
   # on http://api-sandbox.maestrano.io
   #
   config.api.id = 'app-1'
-  config.api.key = 'aznoqb1ks0d84r9i2e63xmculvfg5t7hpwyj1'
+  config.api.key = 'gfcmbu8269wyi0hjazk4t7o1sndpvrqxl53e1'
   
   # ==> Single Sign-On activation
   # Enable/Disable single sign-on. When troubleshooting authentication issues
@@ -138,4 +138,9 @@ Maestrano['other-tenant'].configure do |config|
   
   config.api.id = 'app-2'
   config.api.key = 'przbnuxvogf6th879kl30wi5ycje2sad41mq2'
+
+  config.sso.init_path = '/maestrano/auth/saml/init/other-tenant'
+  config.sso.consume_path = '/maestrano/auth/saml/consume/other-tenant'
+  config.webhook.account.groups_path = '/maestrano/account/groups/:id/other-tenant'
+  config.webhook.account.group_users_path = '/maestrano/account/groups/:group_id/users/:id/other-tenant'
 end

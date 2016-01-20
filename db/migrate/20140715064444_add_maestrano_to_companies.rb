@@ -4,6 +4,7 @@ class AddMaestranoToCompanies < ActiveRecord::Migration
       ## User source identification fields
       t.string :provider
       t.string :uid
+      t.string :tenant
     end
   end
 

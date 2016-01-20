@@ -12,8 +12,9 @@ class Maestrano::Auth::SamlController < Maestrano::Rails::SamlBaseController
   # called 'User' and a group model called 'Organization'
   # the action could be written the following way
   def consume
-    user = User.find_or_create_for_maestrano(user_auth_hash)
-    company = Company.find_or_create_for_maestrano(group_auth_hash)
+    tenant = params[:tenant] || 'default'
+    user = User.find_or_create_for_maestrano(user_auth_hash, tenant)
+    company = Company.find_or_create_for_maestrano(group_auth_hash, tenant)
     if user && company
       unless company.member?(user)
         company.add_member(user)
