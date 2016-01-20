@@ -3,7 +3,7 @@ class Company < ActiveRecord::Base
   attr_protected :provider, :uid
   
   # Enable Maestrano for this group
-  maestrano_group_via :provider, :uid do |group, maestrano|
+  maestrano_group_via :provider, :uid, :tenant do |group, maestrano|
     group.name = (maestrano.company_name.blank? ? "Default Group name" : maestrano.company_name)
     #group.country_alpha2 = maestrano.country
     #group.free_trial_end_at = maestrano.free_trial_end_at

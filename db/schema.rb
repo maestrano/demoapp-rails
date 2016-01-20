@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20140715064444) do
     t.datetime "updated_at", :null => false
     t.string   "provider"
     t.string   "uid"
+    t.string   "tenant"
   end
 
   create_table "user_company_rels", :force => true do |t|
@@ -37,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20140715064444) do
     t.datetime "updated_at",   :null => false
     t.string   "provider"
     t.string   "uid"
+    t.string   "tenant"
   end
 
 end
