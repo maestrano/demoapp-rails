@@ -15,28 +15,28 @@ Maestrano['default'].configure do |config|
   # More details on http://api-sandbox.maestrano.io
   #
   config.environment = 'test'
-  
+
   # ==> Application host
   # This is your application host (e.g: my-app.com) which is ultimately
   # used to redirect users to the right SAML url during SSO handshake.
   #
   config.app.host = Rails.env.development? ? 'http://localhost:3000' : 'http://rails-demoapp.maestrano.io'
-  
+
   # ==> App ID & API key
   # Your application App ID and API key which you can retrieve on http://maestrano.com
   # via your cloud partner dashboard.
-  # For testing you can retrieve/generate an api.id and api.key from the API Sandbox directly 
+  # For testing you can retrieve/generate an api.id and api.key from the API Sandbox directly
   # on http://api-sandbox.maestrano.io
   #
   config.api.id = 'app-1'
   config.api.key = 'gfcmbu8269wyi0hjazk4t7o1sndpvrqxl53e1'
-  
+
   # ==> Single Sign-On activation
   # Enable/Disable single sign-on. When troubleshooting authentication issues
   # you might want to disable SSO temporarily
   #
   # config.sso.enabled = true
-  
+
   # ==> Single Sign-On Identity Manager
   # By default we consider that the domain managing user identification
   # is the same as your application host (see above config.app.host parameter)
@@ -45,7 +45,7 @@ Maestrano['default'].configure do |config|
   # then you can specify it below
   #
   # config.sso.idm = (config.environment == 'production' ? 'https://idp.my-app.com' : 'http://localhost:3000')
-  
+
   # ==> SSO Initialization endpoint
   # This is your application path to the SAML endpoint that allows users to
   # initialize SSO authentication. Upon reaching this endpoint users your
@@ -59,7 +59,7 @@ Maestrano['default'].configure do |config|
   # <rails_root>/app/controllers/maestrano/auth/saml.rb
   #
   # config.sso.init_path = '/maestrano/auth/saml/init'
-  
+
   # ==> SSO Consumer endpoint
   # This is your application path to the SAML endpoint that allows users to
   # finalize SSO authentication. During the 'consume' action your application
@@ -70,7 +70,7 @@ Maestrano['default'].configure do |config|
   # <rails_root>/app/controllers/maestrano/auth/saml.rb
   #
   # config.sso.consume_path = '/maestrano/auth/saml/consume'
-  
+
   # ==> Single Logout activation
   # Enable/Disable single logout. When troubleshooting authentication issues
   # you might want to disable SLO temporarily.
@@ -78,7 +78,7 @@ Maestrano['default'].configure do |config|
   # used in a controller before filter to check user session - always return true
   #
   # config.sso.slo_enabled = true
-  
+
   # ==> SSO User creation mode
   # !IMPORTANT
   # On Maestrano users can take several "instances" of your service. You can consider
@@ -88,12 +88,12 @@ Maestrano['default'].configure do |config|
   # is then supposed to determine which data they have access to inside your application.
   #
   # E.g: John and Jack are part of group 1. They should see the same data when they login to
-  # your application (employee info, analytics, sales etc..). John is also part of group 2 
+  # your application (employee info, analytics, sales etc..). John is also part of group 2
   # but not Jack. Therefore only John should be able to see the data belonging to group 2.
   #
   # In most application this is done via collaboration/sharing/permission groups which is
-  # why a group is required to be created when a new user logs in via a new group (and 
-  # also for billing purpose - you charge a group, not a user directly). 
+  # why a group is required to be created when a new user logs in via a new group (and
+  # also for billing purpose - you charge a group, not a user directly).
   #
   # == mode: 'real'
   # In an ideal world a user should be able to belong to several groups in your application.
@@ -103,7 +103,7 @@ Maestrano['default'].configure do |config|
   # == mode: 'virtual'
   # Now let's say that due to technical constraints your application cannot authorize a user
   # to belong to several groups. Well next time John logs in via a different group there will
-  # be a problem: the user already exists (based on uid or email) and cannot be assigned 
+  # be a problem: the user already exists (based on uid or email) and cannot be assigned
   # to a second group. To fix this you can set the 'sso.creation_mode' to 'virtual'. In this
   # mode users get assigned a truly unique uid and email across groups. So next time John logs
   # in a whole new user account can be created for him without any validation problem. In this
@@ -111,10 +111,10 @@ Maestrano['default'].configure do |config|
   # worry we take care of forwarding any email you would send to this address
   #
   # config.sso.creation_mode = 'real' # or 'virtual'
-  
+
   # ==> Account Webhooks
   # Single sign on has been setup into your app and Maestrano users are now able
-  # to use your service. Great! Wait what happens when a business (group) decides to 
+  # to use your service. Great! Wait what happens when a business (group) decides to
   # stop using your service? Also what happens when a user gets removed from a business?
   # Well the endpoints below are for Maestrano to be able to notify you of such
   # events.
@@ -123,7 +123,7 @@ Maestrano['default'].configure do |config|
   # to notify you of any service cancellation (group deletion) or any user being
   # removed from a group.
   #
-  # The controllers for these hooks path are automatically generated when 
+  # The controllers for these hooks path are automatically generated when
   # you run 'rake maestrano:install' and is available under
   # <rails_root>/app/controllers/maestrano/account/
   #
@@ -131,16 +131,5 @@ Maestrano['default'].configure do |config|
   # config.webhook.account.group_users_path = '/maestrano/account/groups/:group_id/users/:id',
 end
 
-# Configure another tenant
-Maestrano['other-tenant'].configure do |config|
-  config.environment = 'test'
-  config.app.host = Rails.env.development? ? 'http://localhost:3000' : 'http://rails-demoapp.maestrano.io'
-  
-  config.api.id = 'app-2'
-  config.api.key = 'przbnuxvogf6th879kl30wi5ycje2sad41mq2'
-
-  config.sso.init_path = '/maestrano/auth/saml/init/other-tenant'
-  config.sso.consume_path = '/maestrano/auth/saml/consume/other-tenant'
-  config.webhook.account.groups_path = '/maestrano/account/groups/:id/other-tenant'
-  config.webhook.account.group_users_path = '/maestrano/account/groups/:group_id/users/:id/other-tenant'
-end
+# Configure automatically from developer platform
+Maestrano.auto_configure('config/dev-platofrm.yml')

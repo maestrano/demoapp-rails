@@ -1,0 +1,8 @@
+dev_platform:
+  host: https://dev-platform.maestrano.io
+  api_path: /api/config/v1/marketplaces
+
+environment:
+  name: changeme
+  api_key: changeme
+  api_secret: changeme

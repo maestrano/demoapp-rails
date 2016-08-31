@@ -3,7 +3,7 @@
   %p
     You are logged in as
     = "#{current_user.first_name} #{current_user.last_name} (#{current_user.uid})"
-  
+
   - if current_user.companies.exists?
     %p
       You belong to the following companies
@@ -21,6 +21,6 @@
     %p You do not belong to any company
 - else
   %p You are currently not logged in. Click on the button below to login via maestrano
-  = link_to "Login with default tenant", tenant_maestrano_auth_saml_index_path(tenant: 'default')
-  %br
-  = link_to "Login with other tenant", tenant_maestrano_auth_saml_index_path(tenant: 'other-tenant')
+  - Maestrano.configs.keys.each do |tenant|
+    = link_to "Login with marketplace #{tenant}", tenant_maestrano_auth_saml_index_path(tenant: tenant)
+    %br
