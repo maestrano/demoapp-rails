@@ -1,0 +1,35 @@
+%h1 Connec! API
+= link_to "Back", root_path
+
+%div{id: 'editor_holder'}
+%button{id: 'submit'}
+  = "Submit (console.log)"
+%span{id: 'valid_indicator'}
+
+:javascript
+    JSONEditor.defaults.theme = 'foundation5';
+    JSONEditor.defaults.iconlib = 'fontawesome4';
+
+:javascript
+    var editor = new JSONEditor(document.getElementById('editor_holder'), {schema: JSON.parse('#{@json_schema}'), startval: starting_value});
+    var starting_value = #{@resources};
+    document.getElementById('submit').addEventListener('click',function() {
+      console.log(editor.getValue());
+    });
+    editor.on('change',function() {
+      // Get an array of errors from the validator
+      var errors = editor.validate();
+
+      var indicator = document.getElementById('valid_indicator');
+
+      // Not valid
+      if(errors.length) {
+        indicator.style.color = 'red';
+        indicator.textContent = "not valid";
+      }
+      // Valid
+      else {
+        indicator.style.color = 'green';
+        indicator.textContent = "valid";
+      }
+    });
