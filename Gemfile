@@ -5,23 +5,24 @@ gem 'jquery-rails'
 gem 'haml-rails'
 gem 'font-awesome-rails'
 gem 'foundation-rails'
-gem 'puma'
+
+gem 'puma', require: false
 
 gem 'httparty'
 gem 'config'
 gem 'figaro'
 
-gem 'maestrano-rails', '1.0.0.pre.RC5'
+gem 'maestrano-rails', '1.0.0.pre.RC8'
 
-group :development, :test do
-  gem 'activerecord-jdbcsqlite3-adapter', platforms: :jruby
-  gem 'sqlite3', platforms: :ruby
+group :production, :uat do
+  gem 'activerecord-jdbcmysql-adapter', platforms: :jruby
+  gem 'mysql2', platforms: :ruby
+  gem 'rails_12factor'
 end
 
-group :production do
-  gem 'rails_12factor'
-  gem 'activerecord-jdbcpostgresql-adapter', platforms: :jruby
-  gem 'pg', platforms: :ruby
+group :test, :develpment do
+  gem 'activerecord-jdbcsqlite3-adapter', platforms: :jruby
+  gem 'sqlite3', platforms: :ruby
 end
 
 group :test do

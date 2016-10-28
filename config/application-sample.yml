@@ -1,5 +1,5 @@
 MNO_DEVPL_HOST: https://dev-platform.maestrano.io
 MNO_DEVPL_API_PATH: /api/config/v1/marketplaces
-MNO_DEVPL_ENV_NAME: connector-salesforce-uat
+MNO_DEVPL_ENV_NAME: demoapp-rails
 MNO_DEVPL_ENV_KEY: changeme
 MNO_DEVPL_ENV_SECRET: changeme
