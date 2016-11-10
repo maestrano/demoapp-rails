@@ -20,4 +20,5 @@ DemoappRails::Application.routes.draw do
   end
 
   get '/logout', to: 'pages#logout'
+  get '/version', to: 'version#index'
 end
