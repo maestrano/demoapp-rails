@@ -12,9 +12,12 @@ DemoappRails::Application.routes.draw do
 
     # Connec! API
     namespace :connec do
-      resources :organizations, only: [:index]
+      get '', to: 'connec#collections'
+      scope ':resource' do
+        resources '', as: :resource, controller: 'connec', only: [:index, :show, :create, :update]
+      end
     end
   end
-  
+
   get '/logout', to: 'pages#logout'
 end

@@ -1,0 +1,7 @@
+%h1 Connec! API
+= link_to "Back", root_path
+
+%ul
+  - @collections.each do |collection|
+    %li
+      = link_to "#{collection.keys.first}", maestrano_connec_resource_index_path(resource: collection.keys.first)
