@@ -5,7 +5,7 @@ class Maestrano::Auth::SamlController < Maestrano::Rails::SamlBaseController
   # in
   #
   # This action is left to you to customize based on your application
-  # requirements. Below is presented a potential way of writing 
+  # requirements. Below is presented a potential way of writing
   # the action.
   #
   # Assuming you have enabled maestrano on a user model
@@ -16,13 +16,10 @@ class Maestrano::Auth::SamlController < Maestrano::Rails::SamlBaseController
     user = User.find_or_create_for_maestrano(user_auth_hash, tenant)
     company = Company.find_or_create_for_maestrano(group_auth_hash, tenant)
     if user && company
-      unless company.member?(user)
-        company.add_member(user)
-      end
-      
+      company.add_member(user) unless company.member?(user)
       sign_in(user)
     end
-    
+
     redirect_to root_path
   end
 end
