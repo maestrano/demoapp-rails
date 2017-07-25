@@ -1,5 +1,5 @@
-MNO_DEVPL_HOST: https://dev-platform.maestrano.io
+MNO_DEVPL_HOST: https://developer-uat.maestrano.io
 MNO_DEVPL_API_PATH: /api/config/v1/marketplaces
 MNO_DEVPL_ENV_NAME: demoapp-rails
-MNO_DEVPL_ENV_KEY: df3773b5-0223-4a9e-99d0-8283922e06ce
-MNO_DEVPL_ENV_SECRET: x-7p70puMPUQKcuL5R5XHw
+MNO_DEVPL_ENV_KEY: 3f4221b0-89c3-4552-ac4c-6b85d06ebe27
+MNO_DEVPL_ENV_SECRET: H3zMO8VHQC-mT6UcVLpbrg

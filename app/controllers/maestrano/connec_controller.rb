@@ -15,6 +15,7 @@ class Maestrano::ConnecController < ApplicationController
 
   def json_schema(name)
     @json_schema ||= JSON.parse(Maestrano::Connec::Client[current_user.tenant].new('json_schema').get("/#{name}").body).to_json
+    @json_schema
   end
 
   def connec_client
