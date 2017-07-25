@@ -15,7 +15,7 @@
           JSONEditor.defaults.iconlib = 'fontawesome4';
 
         :javascript
-          var starting_value = #{@resources.first.to_json};
+          var starting_value = #{@resources.is_a?(Array) ? @resources.first.to_json : @resources.to_json};
           var editor = new JSONEditor(document.getElementById('editor_holder'), {schema: JSON.parse('#{@json_schema}'), startval: starting_value});
           document.getElementById('submit').addEventListener('click', function() {
             console.log(editor.getValue());
