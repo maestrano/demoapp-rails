@@ -1,6 +1,10 @@
-%h1 Bills
-= link_to "Back", root_path
+!!!
+.container
+  .row
+    .col-md-12.alert.alert-warning
+      %h1 Bills
+      = link_to "Back", root_path
 
-%ul
-  - @bills.each do |bill|
-    %li= "#{bill.id} #{bill.currency} #{bill.price_cents} -  #{bill.description}"
+      %ul
+        - @bills.each do |bill|
+          %li= "#{bill.id} #{bill.currency} #{bill.price_cents} -  #{bill.description}"

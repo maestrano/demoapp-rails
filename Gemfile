@@ -12,7 +12,7 @@ gem 'httparty'
 gem 'config'
 gem 'figaro'
 
-gem 'maestrano-rails', '1.0.0.pre.RC8'
+gem 'maestrano-rails', '1.0.4'
 
 group :production, :uat do
   gem 'activerecord-jdbcmysql-adapter', platforms: :jruby
