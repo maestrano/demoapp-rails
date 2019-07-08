@@ -16,7 +16,7 @@ gem 'maestrano-rails', '1.0.4'
 
 group :production, :uat do
   gem 'activerecord-jdbcmysql-adapter', platforms: :jruby
-  gem 'mysql2', platforms: :ruby
+  gem 'mysql2', '~> 0.4.10', platforms: :ruby
   gem 'rails_12factor'
 end
 
